@@ -25,12 +25,13 @@ function VehicleFrom(props){
 
         //creating new product
         const NewVehicle ={
-            id: Math.random().toString(), // Generate a unique id
+            id: Math.floor(Math.random()*10000), // Generate a unique id
             name: NewName,
             model:NewModel,
-            Date: new Date(NewDate) // Convert the string to a Date object
+            date: new Date(NewDate) // Convert the string to a Date object
         }
         // console.log(NewVehicle)
+        console.log(typeof(NewVehicle.date))
         props.save(NewVehicle)
         //empty what you have written in input field but you have to put value={newname} & value={newndate} in input field respecticely
         setNewName('')
@@ -55,7 +56,7 @@ function VehicleFrom(props){
                 <input className="px-1 rounded-md h-9 w-full" required onChange={dateHandler} value={NewDate} type="date" />
             </div>
             <button 
-            className="bg-sky-800 text-lg hover:bg-sky-700 shadow-md text-white rounded-md my-3 px-2 py-1 ">Submit</button>
+            className="bg-sky-800 text-lg hover:bg-sky-700 shadow-md text-white rounded-md my-3 px-4 py-2 ">Add</button>
         </form>
     )
 } export default VehicleFrom
